@@ -866,6 +866,8 @@ def test_native_calls_types():
     assert(type(s[0]) != type(list(s.iteritems())[0][1]))
     s = pd.Series([1, 2], dtype='Int64')
     assert (type(list(s.iteritems())[0][1]) == type(1))
+    assert(type(pd.Series([1, 2], dtype='int64').tolist()[0])
+        == type(pd.Series([1, 2], dtype='Int64').tolist()[0]))
 
 
 
