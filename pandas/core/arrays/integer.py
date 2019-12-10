@@ -450,7 +450,7 @@ class IntegerArray(ExtensionArray, ExtensionOpsMixin):
             if self._mask[i]:
                 yield self.dtype.na_value
             else:
-                yield self._data[i]
+                yield self._data[i].item()
 
     def take(self, indexer, allow_fill=False, fill_value=None):
         # we always fill with 1 internally

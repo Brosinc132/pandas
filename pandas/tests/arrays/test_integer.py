@@ -860,6 +860,16 @@ def test_stat_method(pandasmethname, kwargs):
     expected = pandasmeth(**kwargs)
     assert expected == result
 
+def test_native_calls_types():
+    s = pd.Series([1, 2], dtype='int64')
+    assert (type(list(s.iteritems())[0][1]) == type(1))
+    assert(type(s[0]) != type(list(s.iteritems())[0][1]))
+    s = pd.Series([1, 2], dtype='Int64')
+    assert (type(list(s.iteritems())[0][1]) == type(1))
+
+
+
+
 
 # TODO(jreback) - these need testing / are broken
 
